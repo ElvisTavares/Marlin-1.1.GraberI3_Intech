@@ -551,10 +551,10 @@
  * :['A4988', 'DRV8825', 'LV8729', 'L6470', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE']
  */
 #define X_DRIVER_TYPE  A4988
-#define Y_DRIVER_TYPE  DRV8825
+#define Y_DRIVER_TYPE  A4988
 #define Z_DRIVER_TYPE  DRV8825
-#define X2_DRIVER_TYPE DRV8825
-#define Y2_DRIVER_TYPE DRV8825
+#define X2_DRIVER_TYPE A4988
+#define Y2_DRIVER_TYPE A4988
 #define Z2_DRIVER_TYPE DRV8825
 #define E0_DRIVER_TYPE A4988
 //#define E1_DRIVER_TYPE A4988
@@ -609,13 +609,15 @@
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 4000, 500 }
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 8314.96062992126, 500 } // verificar
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 8000, 100 } // verificar
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 }
+
+ //#define DEFAULT_MAX_FEEDRATE          { 300, 300, 3, 25 }
+#define DEFAULT_MAX_FEEDRATE          { 400, 400, 3, 25 }
 
 /**
  * Default Max Acceleration (change/s) change = mm/s
@@ -775,7 +777,7 @@
  */
 #define X_PROBE_OFFSET_FROM_EXTRUDER 10  // X offset: -left  +right  [of the nozzle]
 #define Y_PROBE_OFFSET_FROM_EXTRUDER 10  // Y offset: -front +behind [the nozzle]
-#define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
+#define Z_PROBE_OFFSET_FROM_EXTRUDER -1.7 // Z offset: -below +above  [the nozzle]
 
 // Certain types of probes need to stay away from edges
 #define MIN_PROBE_EDGE 10
